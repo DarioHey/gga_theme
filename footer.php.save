@@ -1,0 +1,53 @@
+<?php
+/**
+ * The Header template for our theme
+ *
+ * Displays all of the <head> section and everything up till <div id="main">
+ *
+ * @package CMSSuperHeroes
+ * @subpackage CMS Theme
+ * @since 1.0.0
+ */
+?>
+<?php wp_experts_footer(); ?>
+
+<script>
+jQuery(document).ready(function(){
+ jQuery('.cms-top-social a').attr('target', '_blank');
+ jQuery('.cms-footer-social a').attr('target', '_blank');
+
+ jQuery('.top-button').click(function(){
+	jQuery("#contactModal").modal('show');
+ });
+
+jQuery('.btninv a').click(function(){
+	jQuery("#contactModal").modal('show');
+});
+
+});	
+</script>
+
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal" style="margin-top:50px;" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:none;">
+        <a href="#" class="subscribe-close">
+          <img style="width:28px;" data-dismiss="modal" src="http:/uploads/2016/06/closebutton.png" alt="">
+        </a>
+	<img src="http://gga.adstrata.com/wp-content/uploads/2016/06/nav_logo.png" class='pull-left' style="margin-left 21px; width:100px;" />	
+        <h4 class="modal-title pull-left"   id="myModalLabel">Subscribe to our news</h4>
+	<div class='clearfix'></div>
+	<p></p>
+	
+      </div>
+      <div class="modal-body" style="padding-top:0px;">
+	<p style="margin:0 0 6px 0; padding-left:0;">Join our mailing list to receive the latest news & updates from our team.</p>	
+        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Subscribe Widget') ) : ?>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
